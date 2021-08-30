@@ -1,0 +1,8 @@
+{% extends '../base.html' %}
+{% block content %}
+  <h1>Local covid19_vaccines Home</h1>
+  <p>Welcome to covid19_vaccines_information, a website developed by <em>Wael, Aziz, and Enoc</em>!</p>
+  <P>Login, or register if you don't have an account.</P>
+  <p><a href="{% url 'login' %}">Login</a></p>
+  <p><a href="{% url 'register' %}">Register</a></p>
+{% endblock %}

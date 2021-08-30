@@ -1,0 +1,56 @@
+{% extends '../base.html' %}
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-1 col-xs-1 col-sm-1"></div>
+        <div class="col-md-10 col-xs-10 col-sm-10">
+            <h3 class="round3" style="text-align:center;">Sponsors</h3>
+        </div>
+            <br />
+        </div>
+    </div>
+    <br />
+    <table style="width:70%">
+        <tr>
+            <th>Sponsor ID</th>
+            <th>Sponsor Name</th>
+            <th>Sponsor Country</th>
+            <th>Edit | Delete | Add Sponsor</th>
+          </tr>
+    {% for sponsor in sponsor_list %}
+    <tr>
+        <td>{{sponsor.sponsorid}}</td>
+        <td>{{sponsor.sponsorname}}</td>
+        <td>{{sponsor.sponsorcountry}}</td>
+        <td>
+            <a href="{% url 'editSponsor' sponsor.pk %}">
+                <button type="button" class="btn btn-info">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                </button>
+            </a>
+            <a href="{% url 'deleteSponsor' sponsor.pk %}">
+                <button type="button" class="btn btn-danger">
+                    <span class="glyphicon glyphicon-trash"></span>
+                </button>
+            </a>
+        </div>
+        <a href="{% url 'createSponsor' %}">
+            <button type="button" class="btn btn-success">
+                <span class="glyphicon glyphicon-plus"></span>
+            </button>
+        </a>
+        </td>
+      </tr>
+            <br>
+        </div>
+<!--         <div class="col-md-1 col-xs-1 col-sm-1">
+            <a href="{% url 'detail' sponsor.pk %}">
+                <button type="button" class="btn btn-info">
+                    <span class="glyphicon glyphicon-open"></span>
+                </button>
+            </a>
+        </div> -->
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends '../base.html' %}
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-1 col-xs-1 col-sm-1"></div>
+        <div class="col-md-10 col-xs-10 col-sm-10">
+            <h3 class="round3" style="text-align:center;">All Sponsors and Countries</h3>
+        </div>
+        <div class="col-md-1 col-xs-1 col-sm-1"></div>
+    </div>
+    <br />
+    <table style="width:100%">
+        <tr>
+            <th>Sponsor Name</th>
+            <th>Sponsor Country</th>
+          </tr>
+    {% for sponsorName, countryName in sponsorscountries_list %}
+                      <tr>
+                          <td>{{sponsorName}}</td>
+                          <td>{{countryName}}
+                            <br></td>
+                        </tr>
+            <br>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

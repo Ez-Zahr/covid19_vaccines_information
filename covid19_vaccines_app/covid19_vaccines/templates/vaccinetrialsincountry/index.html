@@ -1,0 +1,53 @@
+{% extends '../base.html' %}
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-1 col-xs-1 col-sm-1"></div>
+        <div class="col-md-10 col-xs-10 col-sm-10">
+            <h3 class="round3" style="text-align:center;">Vaccine Trials in Country</h3>
+        </div>
+            <br />
+        </div>
+    </div>
+    <br />
+    <table style="width:70%">
+        <tr>
+            <th>Vaccine ID</th>
+            <th>Country Code</th>
+            <th>Edit | Delete | Add </th>
+          </tr>
+    {% for vaccinetrialsincountry in vaccinetrialsincountry_list %}
+    <tr>
+        <td>{{vaccinetrialsincountry.vaccineid}}</td>
+        <td>{{vaccinetrialsincountry.countrycode}}</td>
+        <td>
+            <a href="{% url 'editVaccinetrialsincountry' vaccinetrialsincountry.pk %}">
+                <button type="button" class="btn btn-info">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                </button>
+            </a>
+        </div>
+            <a href="{% url 'deleteVaccinetrialsincountry' vaccinetrialsincountry.pk %}">
+                <button type="button" class="btn btn-danger">
+                    <span class="glyphicon glyphicon-trash"></span>
+                </button>
+            </a>
+        <a href="{% url 'createVaccinetrialsincountry' %}">
+            <button type="button" class="btn btn-success">
+                <span class="glyphicon glyphicon-plus"></span>
+            </button>
+        </a>
+        </td>
+      </tr>
+            <br>
+        </div>
+<!--         <div class="col-md-1 col-xs-1 col-sm-1">
+            <a href="{% url 'detail' vaccinetrialsincountry.pk %}">
+                <button type="button" class="btn btn-info">
+                    <span class="glyphicon glyphicon-open"></span>
+                </button>
+            </a>
+        </div> -->
+    {% endfor %}
+</div>
+{% endblock %}

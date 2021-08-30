@@ -1,0 +1,43 @@
+{% extends '../base.html' %}
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-1 col-xs-1 col-sm-1"></div>
+        <div class="col-md-10 col-xs-10 col-sm-10">
+            <h3 class="round3" style="text-align:center;">All Vaccines manufactured by a Sponsor</h3>
+        </div>
+        <div class="col-md-1 col-xs-1 col-sm-1"></div>
+    </div>
+    <br />
+    <div>
+        <p>Please provide a sponsor name:</p>
+        <input name="sponsorName" type="text" id="sponsorName" required/>
+        <button onclick="customRedirect()" class="btn btn-primary">submit</button>
+        <script>
+            function customRedirect() {
+                let url = "/vaccinesbysponsor/" + document.getElementById("sponsorName").value + "/";
+                window.location.href=url;
+            }
+       </script>
+    </div>
+    <table style="width:100%">
+        <tr>
+          <th>Vaccine ID</th>
+          <th>Vaccine Name</th>
+          <th>Vaccine Mechanism</th>
+          <th>Vaccine Status</th>
+          <th>Vaccine Details</th>
+        </tr>
+    {% for vaccine in vaccine_list %}
+                        <tr>
+                            <td>{{vaccine.vaccineid}}</td>
+                            <td>{{vaccine.vaccinename}}</td>
+                            <td>{{vaccine.vaccinemechanism}}</td>
+                            <td>{{vaccine.vaccinestatus}}</td>
+                            <td>{{vaccine.vaccinedetails}}</td>
+                          </tr>
+                      </table>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

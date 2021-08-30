@@ -1,0 +1,59 @@
+{% extends '../base.html' %}
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-1 col-xs-1 col-sm-1"></div>
+        <div class="col-md-10 col-xs-10 col-sm-10">
+            <h3 class="round3" style="text-align:center;">Vaccines</h3>
+        </div>
+        <div class="col-md-1 col-xs-1 col-sm-1"></div>
+    </div>
+    </div>
+    <br />
+    <table style="width:75%">
+        <tr>
+            <th>Vaccine ID</th>
+            <th>Vaccine Name</th>
+            <th>Vaccine Mechinsm</th>
+            <th>Vaccine Status</th>
+            <th>Vaccine Details</th>
+            <th>Edit | Delete | Add Vaccine</th>
+          </tr>
+    {% for vaccine in vaccine_list %}
+    <tr>
+        <td>{{vaccine.vaccineid}}</td>
+        <td>{{vaccine.vaccinename}}</td>
+        <td>{{vaccine.vaccinemechanism}}</td>
+        <td>{{vaccine.vaccinestatus}}</td>
+        <td>{{vaccine.vaccinedetails}}</td>
+        <td>
+            <a href="{% url 'editVaccine' vaccine.pk %}">
+                <button type="button" class="btn btn-info">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                </button>
+            </a>
+            <a href="{% url 'deleteVaccine' vaccine.pk %}">
+                <button type="button" class="btn btn-danger">
+                    <span class="glyphicon glyphicon-trash"></span>
+                </button>
+            </a>
+            <a href="{% url 'createVaccine' %}">
+                <button type="button" class="btn btn-success">
+                    <span class="glyphicon glyphicon-plus"></span>
+                </button>
+            </a>
+        </td>
+      </tr>
+            <br>
+        </div>
+<!--         <div class="col-md-1 col-xs-1 col-sm-1">
+            <a href="{% url 'detail' vaccine.pk %}">
+                <button type="button" class="btn btn-info">
+                    <span class="glyphicon glyphicon-open"></span>
+                </button>
+            </a>
+        </div> -->
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

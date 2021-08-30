@@ -1,0 +1,56 @@
+{% extends '../base.html' %}
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-1 col-xs-1 col-sm-1"></div>
+        <div class="col-md-10 col-xs-10 col-sm-10">
+            <h3 class="round3" style="text-align:center;">Countries</h3>
+        </div>
+        </div>
+    </div>
+    <br />
+    <table style="width:70%">
+        <tr>
+            <th>Country Name</th>
+            <th>Country Code</th>
+            <th>Country Vaccinated</th>
+            <th>Edit | Delete | Add Country</th>
+          </tr>
+    {% for country in country_list %}
+    <tr>
+        <td>{{country.countryname}}</td>
+        <td>{{country.countrycode}}</td>
+        <td>{{country.countryvaccinated}}</td>
+        <td>
+            <a href="{% url 'editCountry' country.pk %}">
+                <button type="button" class="btn btn-info">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                </button>
+            </a>
+        </div>
+            <a href="{% url 'deleteCountry' country.pk %}">
+                <button type="button" class="btn btn-danger">
+                    <span class="glyphicon glyphicon-trash"></span>
+                </button>
+            </a>
+        </div>
+        <a href="{% url 'createCountry' %}">
+            <button type="button" class="btn btn-success">
+                <span class="glyphicon glyphicon-plus"></span>
+            </button>
+        </a>
+        </td>
+      </tr>
+            <br>
+        </div>
+<!--         <div class="col-md-1 col-xs-1 col-sm-1">
+            <a href="{% url 'detail' country.pk %}">
+                <button type="button" class="btn btn-info">
+                    <span class="glyphicon glyphicon-open"></span>
+                </button>
+            </a>
+        </div> -->
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

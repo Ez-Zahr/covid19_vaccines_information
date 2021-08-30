@@ -1,0 +1,41 @@
+{% extends '../base.html' %}
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-1 col-xs-1 col-sm-1"></div>
+        <div class="col-md-10 col-xs-10 col-sm-10">
+            <h3 class="round3" style="text-align:center;">All Sponsors' Vaccines by Status</h3>
+        </div>
+        <div class="col-md-1 col-xs-1 col-sm-1"></div>
+    </div>
+    <br />
+    <div>
+        <p>Please provide a vaccine status (Phase 1/2/3):</p>
+        <input name="vaccineStatus" type="text" id="vaccineStatus" required/>
+        <button onclick="customRedirect()" class="btn btn-primary">submit</button>
+        <script>
+            function customRedirect() {
+                let url = "/sponsorsvaccinesstatus/" + document.getElementById("vaccineStatus").value + "/";
+                window.location.href=url;
+            }
+       </script>
+    </div>
+    <table style="width:100%">
+        <tr>
+            <th>Sponsor Name</th>
+            <th>Vaccine Name</th>
+            <th>Vaccine Status</th>
+          </tr>
+    {% for sponsorName, vaccineName, vaccineStatus in sponsorsvaccinesstatus_list %}
+                      <tr>
+                          <td>{{sponsorName}}</td>
+                          <td>{{vaccineName}}</td>
+                          <td>{{vaccineStatus}}</td>
+                        </tr>
+            <br>
+        </div>
+    </div>
+    {% endfor %}
+</table>
+</div>
+{% endblock %}

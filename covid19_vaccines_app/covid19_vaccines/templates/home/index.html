@@ -1,0 +1,29 @@
+{% extends '../base.html' %}
+{% block content %}
+  <h1>Local covid19_vaccines Home</h1>
+  <p>Welcome to covid19_vaccines_information, a website developed by <em>Wael, Aziz, and Enoc</em>!</p>
+  <h2>Database</h2>
+  <a href="{% url 'initDB' %}">Initialize Database</a>
+  <br>
+  <p>CRUD operations on 3 entities:</p>
+  <ol>
+    <li><p><a href="{% url 'sponsor_index' %}">Sponsor</a></p></li>
+    <li><p><a href="{% url 'vaccine_index' %}">Vaccine</a></p></li>
+    <li><p><a href="{% url 'vaccinetrialsincountry_index' %}">Vaccine Trials Locations</a></p></li>
+  </ol>
+  <p>Trivial Queries (Links labled as CRUD encompass 4 queries each):</p>
+  <ol>
+    <li><p><a href="{% url 'country_index' %}">Country (CRUD)</a></p></li>
+    <li><p><a href="{% url 'sponsormanufacturesvaccine_index' %}">Sponsor-Manufactured Vaccines (CRUD)</a></p></li>
+    <li><p><a href="{% url 'sponsors_in_country' %}">List all sponsors based in a specific country by country code</a></p></li>
+  </ol>
+
+  <p>Non-Trivial Queries as per the outline:</p>
+  <ol>
+    <li><p><a href="{% url 'sponsors_countries' %}">List all sponsors and their countries</a></p></li>
+    <li><p><a href="{% url 'vaccines_in_country' %}">List all vaccines based in a specific country</a></p></li>
+    <li><p><a href="{% url 'vaccines_by_sponsor' %}">List all the vaccines manufactured by a specific sponsor</a></p></li>
+    <li><p><a href="{% url 'trials_in_countries' %}">List all countries with the number of vaccine trials</a></p></li>
+    <li><p><a href="{% url 'sponsors_vaccines_status' %}">List all sponsors who’s vaccines are in a specific vaccine status</a></p></li>
+  </ol>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends '../base.html' %}
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-1 col-xs-1 col-sm-1"></div>
+        <div class="col-md-10 col-xs-10 col-sm-10">
+            <h3 class="round3" style="text-align:center;">Number of Trials in Countries</h3>
+        </div>
+        <div class="col-md-1 col-xs-1 col-sm-1"></div>
+    </div>
+    <br />
+        <table style="width:100%">
+        <tr>
+            <th>Country Name</th>
+            <th>Country Trials</th>
+          </tr>
+    {% for country in trialsincountries_list %}
+                        <tr>
+                          <td>{{country.name}}</td>
+                          <td>{{country.trials}}</td>
+                        </tr>
+            <br>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends '../base.html' %}
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-1 col-xs-1 col-sm-1"></div>
+        <div class="col-md-10 col-xs-10 col-sm-10">
+            <h3 class="round3" style="text-align:center;">Sponsor Manufactures Vaccine</h3>
+        </div>
+    <br />
+    <table style="width:70%">
+        <tr>
+            <th>Sponsor ID</th>
+            <th>Vaccine ID</th>
+            <th>Edit | Delete | Add </th>
+          </tr>
+    {% for sponsormanufacturesvaccine in sponsormanufacturesvaccine_list %}
+    <tr>
+        <td>{{sponsormanufacturesvaccine.sponsorid}}</td>
+        <td>{{sponsormanufacturesvaccine.vaccineid}}</td>
+        <td>
+            <a href="{% url 'editSponsormanufacturesvaccine' sponsormanufacturesvaccine.pk %}">
+                <button type="button" class="btn btn-info">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                </button>
+            </a>
+            <a href="{% url 'deleteSponsormanufacturesvaccine' sponsormanufacturesvaccine.pk %}">
+                <button type="button" class="btn btn-danger">
+                    <span class="glyphicon glyphicon-trash"></span>
+                </button>
+            </a>
+        </div>
+        <a href="{% url 'createSponsormanufacturesvaccine' %}">
+            <button type="button" class="btn btn-success">
+                <span class="glyphicon glyphicon-plus"></span>
+            </button>
+        </a>
+        </td>
+      </tr>
+            <br>
+        </div>
+<!--         <div class="col-md-1 col-xs-1 col-sm-1">
+            <a href="{% url 'detail' sponsormanufacturesvaccine.pk %}">
+                <button type="button" class="btn btn-info">
+                    <span class="glyphicon glyphicon-open"></span>
+                </button>
+            </a>
+        </div> -->
+    {% endfor %}
+</div>
+{% endblock %}
